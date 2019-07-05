@@ -3,7 +3,8 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { FuckThisBullShit } from './fridayproject6.js';
+// import { FuckThisBullShit } from './fridayproject6.js';
+var medic = require('./fridayproject6.js').medic;
 
 $(document).ready(function() {
 
@@ -13,9 +14,9 @@ $(document).ready(function() {
 
      console.log(doctor);
      console.log(sickness);
+     console.log(medic(doctor,sickness));
 
 
-         
 });
 
 // $('#searchSickness').click(function() {

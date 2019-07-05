@@ -12,12 +12,11 @@ $(document).ready(function() {
      let doctor = $('#dataDoctorInput').val();
      let sickness = $('#dataSicknessInput').val();
 
+     document.getElementById("#showInfo").innerHTML = medic(doctor,sickness);
      console.log(doctor);
      console.log(sickness);
-     console.log(medic(doctor,sickness));
 
-     $('showInfo').append(getElements);
-
+     // $('.showInfo').(medic(doctor,sickness));
    });
 
 });

@@ -12,11 +12,12 @@ $(document).ready(function() {
      let doctor = $('#dataDoctorInput').val();
      let sickness = $('#dataSicknessInput').val();
 
-     document.getElementById("#showInfo").innerHTML = medic(doctor,sickness);
+     // document.getElementById("#showInfo").innerHTML = medic(doctor,sickness);
      console.log(doctor);
      console.log(sickness);
-
-     // $('.showInfo').(medic(doctor,sickness));
+     // console.log(medic(doctor,sickness));
+     // $('#showInfo').text(medic(doctor,sickness).toString());
+     document.getElementById("showInfo").innerHTML = medic(doctor,sickness);
    });
 
 });

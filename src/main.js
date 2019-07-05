@@ -6,4 +6,10 @@ import './styles.css';
 
 $(document).ready(function() {
 
+  $('#search').click(function() {
+     const city = $('#data').val();
+     $('#data').val("");
+
+      let request = new XMLHttpRequest();
+      const url =;
 });

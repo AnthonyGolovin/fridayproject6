@@ -11,13 +11,11 @@ $(document).ready(function() {
   $('#searchDoctor').click(function() {
      let doctor = $('#dataDoctorInput').val();
      let sickness = $('#dataSicknessInput').val();
-
-     // document.getElementById("#showInfo").innerHTML = medic(doctor,sickness);
-     console.log(doctor);
-     console.log(sickness);
-     // console.log(medic(doctor,sickness));
-     // $('#showInfo').text(medic(doctor,sickness).toString());
-     document.getElementById("showInfo").innerHTML = medic(doctor,sickness);
+    let data;
+    data = medic(doctor,sickness,
+      function () {
+      document.getElementById("showInfo").innerHTML = data[0];
+      });
    });
 
 });

@@ -6,6 +6,7 @@ import './styles.css';
 // import { FuckThisBullShit } from './fridayproject6.js';
 var medic = require('./fridayproject6.js').medic;
 
+
 $(document).ready(function() {
 
   $('#searchDoctor').click(function() {
@@ -13,8 +14,11 @@ $(document).ready(function() {
      let sickness = $('#dataSicknessInput').val();
     let data;
     data = medic(doctor,sickness,
+
       function () {
-      document.getElementById("showInfo").innerHTML = data[0];
+        let doctorInfo = data.toString();
+      document.getElementById("showInfo").innerHTML = doctorInfo;
+      // document.getElementById("showInfo2").innerHTML = data[1];
       });
    });
 

@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/main.js',
@@ -9,6 +10,10 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  node: {
+    fs: 'empty'
+  },
+  target: 'web',
   devtool: 'eval-source-map',
   devServer: {
     contentBase: './dist'
@@ -16,6 +21,7 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       title: 'fridayproject6',
       template: './src/index.html',

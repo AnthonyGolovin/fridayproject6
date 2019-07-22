@@ -17,6 +17,7 @@ $(document).ready(function() {
 
       function () {
         let doctorInfo = data.toString();
+        if (doctorInfo.length < 1 || doctorInfo == []) { doctorInfo = ["No Results"]; }
       document.getElementById("showInfo").innerHTML = doctorInfo;
       // document.getElementById("showInfo2").innerHTML = data[1];
       });

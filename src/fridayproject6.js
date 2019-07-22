@@ -10,12 +10,14 @@ function getMedicalInfo(doctor,sickness, callback) {
 
   try {
   request.open("GET", url, true);
-} catch(requestError) {
+  } catch(requestError) {
       console.log(requestError);
     }
-try {
+    try {
   request.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
+    if (this.status !== 200) {
+      answer = ["SOMETHING WENT WRONG STATUS CODE NOT 200!!!"];
+    } else if (this.readyState === 4 && this.status === 200) {
       const response = JSON.parse(this.responseText);
       for (let i = 0; i < response.meta.count; i++){
         answer.push(response.data[i].practices[0].name);
@@ -23,22 +25,21 @@ try {
       if (typeof callback === "function") {
         callback.apply(this);
       }
-    } else {
-      answer = "status code is " + this.status;
     }
   };
 } catch(parseError) {
-console.log(parseError);
+console.error(parseError);
 }
+console.log("qwewqeqw");
 try {
   request.send();
 } catch(requestSend) {
-  console.log("pew");
+  console.log(requestSend);
 }
-if (answer.length < 1 || answer == undefined) {
-  answer = "No results";
-}
+// setTimeout(function(){  if (answer == undefined || answer == 0) {
+//    answer = ["No results"];
+// }  }, 3000);
+console.log(answer);
   return answer;
- }
-
+}
  exports.medic = getMedicalInfo;
